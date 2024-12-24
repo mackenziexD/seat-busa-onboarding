@@ -1,0 +1,37 @@
+{
+  "name": "helious/seat-busa-onboarding",
+  "type": "library",
+  "keywords": [
+      "helious",
+      "seat-busa-onboarding"
+  ],
+  "authors": [
+      {
+          "name": "Helious",
+          "role": "Developer"
+      }
+  ],
+  "autoload": {
+      "psr-4": {
+          "Helious\\SeatBusaOnboarding\\": "src/"
+      }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+      "php": "^8.1",
+      "laravel/framework": "^10.0",
+      "eveseat/web": "^5.0"
+  },
+  "require-dev": {
+      "phpunit/phpunit": "^10.0",
+      "orchestra/testbench": "^8.0"
+  },
+  "extra": {
+      "laravel": {
+          "providers": [
+              "Helious\\SeatBusaOnboarding\\OnboardingServivceProvider"
+          ]
+      }
+  }
+}
