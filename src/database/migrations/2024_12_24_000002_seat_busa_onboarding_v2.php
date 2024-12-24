@@ -4,13 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SeatBusaOnboradingInitialDeployment extends Migration
+class SeatBusaOnboardingMigrationV2 extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('seat_busa_onboarding', function (Blueprint $table) {
@@ -21,11 +16,6 @@ class SeatBusaOnboradingInitialDeployment extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('seat_busa_onboarding');
