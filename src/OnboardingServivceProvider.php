@@ -28,7 +28,7 @@ class OnboardingServivceProvider extends AbstractSeatPlugin
 
        
         // Register generic permissions
-        $this->registerPermissions(__DIR__ . '/Config/Permissions/other.php', 'other');
+        $this->registerPermissions(__DIR__ . '/Config/Permissions/other.php', 'onboarding');
     }
 
     /**
@@ -44,7 +44,7 @@ class OnboardingServivceProvider extends AbstractSeatPlugin
      */
     private function add_views()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'yourpackage');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'seat-busa-onboarding');
     }
 
     /**
