@@ -1,9 +1,9 @@
-@extends('web::layouts.grids.12', ['viewname' => 'seat-busa-onboarding::edit'])
+@extends('web::layouts.app')
 
 @section('title', 'Onboarding - Edit')
 @section('page_header', 'Onboarding - Edit')
 
-@section('full')
+@section('content')
 <div class="row">
     <div class="col-md-12">
       <div class="card card-default">
@@ -12,6 +12,7 @@
         </div>
         <div class="card-body">
             <form method="POST" action="#">
+                @csrf
                 <div class="mb-3">
                     <label for="content" class="form-label">Content</label>
                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="markdown-editor" rows="15"></textarea>
@@ -33,28 +34,22 @@
 @push('javascript')
 <style>
     .CodeMirror {
-        background: #1b1b29;
         border: 1px solid #35354f;
-        color: #ffffff;
     }
     .editor-toolbar {
-        border: 1px solid #35354f;
+        background-color: #eee;
     }
-  
     .CodeMirror-cursor {
-        border-left: 1px solid #ffffff !important; 
-    }
-    .CodeMirror-selected {
-        background-color: #4a4a68 !important; 
+        border-left: 1px solid #222 !important; 
     }
     .editor-toolbar button.active, .editor-toolbar button:hover {
-        background: #2d2d45 !important; 
-    }
-    .editor-preview {
-        background: #151521 !important; 
+        background: #a8a8a8 !important;
     }
     .EasyMDEContainer .CodeMirror-fullscreen {
-        background: #1b1b29 !important;
+        left: 250px !important;
+    }
+    .editor-preview {
+        color: #282828 !important;
     }
     .editor-toolbar.fullscreen {
         background: #282828 !important;
