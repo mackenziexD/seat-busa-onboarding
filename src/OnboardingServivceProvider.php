@@ -13,6 +13,8 @@ class OnboardingServivceProvider extends AbstractSeatPlugin
 {
     public function boot()
     {
+        $this->injectIntoSettingsSidebar();
+
         $this->add_routes();
 
         $this->add_views();
@@ -29,6 +31,35 @@ class OnboardingServivceProvider extends AbstractSeatPlugin
        
         // Register generic permissions
         $this->registerPermissions(__DIR__ . '/Config/Permissions/other.php', 'onboarding');
+    }
+
+    /**
+     * Inject a custom entry into the settings section of the sidebar.
+    */
+    private function injectIntoSettingsSidebar()
+    {
+        // Get the existing sidebar menu configuration
+        $menu = config('package.sidebar');
+
+        // Define your custom entry for the settings menu
+        $custom_entry = [
+            'name' => 'edit onboarding',
+            'label' => 'Edit Onboarding',
+            'icon' => 'fas fa-shield-alt',
+            'route' => 'seat-busa-onboarding::edit',
+        ];
+
+        // Add the custom entry into the settings menu
+        if (isset($menu['settings']['entries'])) {
+            $menu['settings']['entries'][] = $custom_entry;
+        } else {
+            $menu['settings'] = [
+                'entries' => [$custom_entry],
+            ];
+        }
+
+        // Update the configuration
+        config(['package.sidebar' => $menu]);
     }
 
     /**
