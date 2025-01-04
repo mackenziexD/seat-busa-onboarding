@@ -3,9 +3,9 @@
 return [
     '0busa-onboarding' => [
         'permission' => 'global.superuser',
-        'name' => 'Onboarding',
+        'name' => 'Recruitment Guide',
         'icon' => 'fas fa-handshake',
-        'route_segment' => 'onboarding',
+        'route_segment' => 'recruitment_guide',
         'route' => 'seat-busa-onboarding::index',
     ],
 ];

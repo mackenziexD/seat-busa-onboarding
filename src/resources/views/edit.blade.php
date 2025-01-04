@@ -1,21 +1,21 @@
 @extends('web::layouts.app')
 
-@section('title', 'Onboarding - Edit')
-@section('page_header', 'Onboarding - Edit')
+@section('title', 'Recruitment Guide - Edit')
+@section('page_header', 'Recruitment Guide - Edit')
 
 @section('content')
 <div class="row">
     <div class="col-md-12">
       <div class="card card-default">
         <div class="card-header">
-          <h3 class="card-title">Edit Onboarding</h3>
+          <h3 class="card-title">Edit Recruitment Guide</h3>
         </div>
         <div class="card-body">
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('seat-busa-onboarding::store') }}">
                 @csrf
                 <div class="mb-3">
                     <label for="content" class="form-label">Content</label>
-                    <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="markdown-editor" rows="15"></textarea>
+                    <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="markdown-editor" rows="15">{{ old('content', $content ?? '') }}</textarea>
                     @error('content')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -24,6 +24,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+        </div>
+        <div class="card-footer">
+            Last Updated By: {{$content->updated_by->name ?? 'N/A'}}
         </div>
       </div>
 
@@ -52,7 +55,12 @@
         color: #282828 !important;
     }
     .editor-toolbar.fullscreen {
-        background: #282828 !important;
+        top: 50px !important;
+        left: 250px !important;
+        background-color: #eee !important;
+    }
+    .EasyMDEContainer .CodeMirror-fullscreen {
+        margin-top: 40px !important
     }
     </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
@@ -60,7 +68,7 @@
 <script>
     var easyMDE = new EasyMDE({
         element: document.getElementById("markdown-editor"),
-        initialValue: "Write your markdown content here..."
+        initialValue: `{!! old('content', $content->content ?? '') !!}`,
     });
 </script>
 @endpush
