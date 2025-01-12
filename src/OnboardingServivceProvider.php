@@ -46,7 +46,7 @@ class OnboardingServivceProvider extends AbstractSeatPlugin
             'name' => 'edit onboarding',
             'label' => 'Edit Onboarding',
             'icon' => 'fas fa-pen',
-            'route' => 'seat-busa-onboarding::edit',
+            'route' => 'seat-busa-onboarding::edit'
         ];
 
         // Add the custom entry into the settings menu
